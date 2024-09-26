@@ -33,7 +33,7 @@ metadata:
   namespace: kub30min
 spec:
   ports:
-  - port: 80
+  - port: 81
     targetPort: 80
   type: LoadBalancer
   selector:

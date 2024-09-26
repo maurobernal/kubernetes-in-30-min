@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-postgres-identity
+  namespace: gag-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-identity
+  template:
+    metadata:
+      labels:
+        app: postgres-identity
+    spec:
+      containers:
+        - name: postgres
+          image: 'postgres:latest'
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgresdata
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+      volumes:
+        - name: postgresdata
+          persistentVolumeClaim:
+            claimName: pvc-identity
