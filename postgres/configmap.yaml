@@ -2,8 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-secret
-  namespace: gag-db
+  namespace: db
 data:
   POSTGRES_DB: postgres
-  POSTGRES_PASSWORD: m9UbPZ~c-Y21!-z
+  POSTGRES_PASSWORD: Pass2024
   POSTGRES_USER: ps_user

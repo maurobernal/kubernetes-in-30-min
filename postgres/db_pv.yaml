@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-identity
-  namespace: gag
+  name: pv-db
 spec:
   storageClassName: manual
   capacity:
@@ -10,4 +9,4 @@ spec:
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: /storage/data/postgres/identity
+    path: /storage/data/postgres/db

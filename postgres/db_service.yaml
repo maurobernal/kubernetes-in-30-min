@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-postgres-identity
-  namespace: gag-db
+  name: service-db
+  namespace: db
 spec:
   ports:
     - port: 55433
       targetPort: 5432
   selector:
-    app: postgres-identity
+    app: postgres-db
